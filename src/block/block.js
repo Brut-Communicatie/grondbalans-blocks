@@ -47,9 +47,24 @@ registerBlockType( 'cgb/block-my-block', {
 		grondbankAdres: {
 			type: 'string'
 		},
-		logo : {
-			type: 'image'
-		}
+		grondbankStraat: {
+			type : 'string'
+		},
+		grondbankContact: {
+			type: 'string'
+		},
+		grondbankTel: {
+			type: 'string'
+		},
+		grondbankMail: {
+			type: 'string'
+		},
+		logoUrl : {
+			type: 'string'
+		},
+		logoId : {
+			type: 'number'
+		},
 	},
 
 	/**
@@ -91,19 +106,35 @@ registerBlockType( 'cgb/block-my-block', {
 			});
 		}
 
+		const updateStreetName = (e) =>{
+			props.setAttributes({
+				grondbankStraat: e.target.value,
+			});
+		}
+
+		const updateAdres = (e) =>{
+			props.setAttributes({
+				grondbankAdres: e.target.value,
+			});
+		}
+
 		return (
 			<div className={ props.className }>
-				<p>Naam van grondbank</p>
-				<input type="text" onBlur={updateName} onChange={updateValue} value={props.attributes.grondbankName} />
-				<p>
-					Adres
-				</p>
+
+				<input type="text" onBlur={updateName} onChange={updateValue} value={props.attributes.grondbankName} placeholder="Grondbank locatie"/>
+				<br/>
+				<input type="text" onBlur={updateStreetName} onChange={updateStreetName} value={props.attributes.grondbankStraat} placeholder="Grondbank straat"/>
+				<br/>
+				<input type="text" onBlur={updateAdres} onChange={updateAdres} value={props.attributes.grondbankAdres} placeholder="Grondbank adres"/>
 
 				{props.attributes.mediaUrl != "" ? 
 				(
-				<img src={props.attributes.mediaUrl} />
+					<div>
+					<img src={props.attributes.mediaUrl} />
+					</div>
 				)
-				 : null}
+				: null}
+
 				<MediaUpload
 					title={__('Replace image', 'awp')}
 					value={props.attributes.mediaId}
@@ -113,7 +144,9 @@ registerBlockType( 'cgb/block-my-block', {
 						<a onClick={open} isDefault isLarge>{__('Selecteer of verander afbeelding', 'awp')}</a>
 					)}
 				/>
+
 				<br/>
+
 				<a onClick={removeMedia}>Verwijder afbeelding</a>
 			</div>
 		);

@@ -92,6 +92,8 @@ function render_posts_block( $attributes ){
 	echo '<pre>';
 	var_dump($attributes);
 	echo '</pre>';
+	echo '<img src="' .$attributes['mediaUrl'] .'" />';
+	// die();
 }
 
 // Hook: Block assets.
