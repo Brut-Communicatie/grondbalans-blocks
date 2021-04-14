@@ -35,6 +35,12 @@ registerBlockType( 'cgb/grondbalans-banner', {
 		__( 'grondbalans banner' ),
 	],
 	attributes: {
+        mediaUrl: {
+            type: 'string',
+        },
+        mediaId: {
+            type: 'number',
+        },
 	},
 
 	/**
@@ -49,11 +55,40 @@ registerBlockType( 'cgb/grondbalans-banner', {
 	 * @returns {Mixed} JSX Component.
 	 */
 	edit: ( props ) => {
-		// Creates a <p class='wp-block-cgb-block-my-block'></p>.
+        const removeMedia = () => {
+			props.setAttributes({
+				mediaId: 0,
+				mediaUrl: ''
+			});
+		}
+		 const onSelectMedia = (media) => {
+			props.setAttributes({
+				mediaId: media.id,
+				mediaUrl: media.url
+			});
+		}
         console.log(props);
         
 		return (
 			<div className={ props.className }>
+                {props.attributes.mediaUrl != "" ? 
+				(
+					<div>
+					<img src={props.attributes.mediaUrl} width="250px" />
+					</div>
+				)
+				: null}
+
+				<MediaUpload
+					title={__('Replace image', 'awp')}
+					value={props.attributes.mediaId}
+					onSelect={onSelectMedia}
+					allowedTypes={['image']}
+					render={({open}) => (
+						<a onClick={open} isDefault isLarge>{__('Selecteer of verander afbeelding', 'awp')}</a>
+					)}
+				/>
+                <a onClick={removeMedia}>Verwijder afbeelding</a>
 			</div>
 		);
 	},

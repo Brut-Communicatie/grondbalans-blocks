@@ -1,18 +1,1 @@
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
-/**
- * #.# Styles
- *
- * CSS for both Frontend+Backend.
- */
-.wp-block-cgb-block-my-block {
-  background: orangered;
-  border: 0.2rem solid #292929;
-  color: #292929;
-  margin: 0 auto;
-  max-width: 740px;
-  padding: 2rem; }
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;300&display=swap");.grondbank__image{margin-bottom:1rem;width:100%}.grondbank__image img{width:100%}.grondbank__item{background:#ececec;-webkit-box-shadow:0 3px 6px rgba(0,0,0,0.16),0 3px 6px rgba(0,0,0,0.23);box-shadow:0 3px 6px rgba(0,0,0,0.16),0 3px 6px rgba(0,0,0,0.23);border-bottom:3px solid #e4170e;padding:25px 12px;width:100%;scroll-margin-top:7rem;display:-ms-flexbox;display:flex;-ms-flex-pack:start;justify-content:flex-start;-ms-flex-align:start;align-items:flex-start;-ms-flex-direction:column;flex-direction:column}.grondbank__details{width:100%}.grondbank__details p{margin:0;font-family:'Montserrat', sans-serif;font-size:18px;font-size:14px}@media screen and (max-width: calc(1180px + 5px)){.grondbank__details p{font-size:clamp(1vw, 16px, 18px)}}.grondbank__details--top{width:100%;margin-bottom:2rem}.grondbank__details--top h3{font-weight:700;font-family:'Montserrat', sans-serif;font-size:18px;margin:0}.grondbank__details--mid{width:100%;padding-bottom:1rem;border-bottom:2px solid #e5e4e4}.grondbank__details--mid p:first-child{color:#c42517;margin-bottom:10px}.grondbank__details--mid>a,.grondbank__details--mid>a:active,.grondbank__details--mid>a:visited,.grondbank__details--mid>a:link{text-decoration:none;color:#43816b}.grondbank__details--mid>a:hover,.grondbank__details--mid>a:active:hover,.grondbank__details--mid>a:visited:hover,.grondbank__details--mid>a:link:hover{text-decoration:underline}.grondbank__details--onder{width:100%}.grondbank__details--onder h4{font-weight:700;font-family:'Montserrat', sans-serif;font-size:18px;margin:20px 0}.grondbank__details--onder img{height:50px}
