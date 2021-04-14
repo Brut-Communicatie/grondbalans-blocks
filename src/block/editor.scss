@@ -5,11 +5,30 @@
  * which makes it higher in priority.
  */
 
-.wp-block-cgb-block-my-block  {
-  background: #fff;
-  border: 0.2rem solid $black;
+ .wp-block-cgb-block-my-block  {
+  background: #ececec;
+  border-bottom: 0.2rem solid red;
   color: $black;
   margin: 0 auto;
   max-width: 740px;
-  padding: 2rem;
+  padding: 1rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
+
+  h1{
+    margin: 0;
+  }
+  input{
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  a{
+    color: black;
+    font-weight: 600;
+    text-decoration: underline;
+    &:hover{
+      cursor: pointer;
+      opacity: 0.9;
+    }
+  }
 }

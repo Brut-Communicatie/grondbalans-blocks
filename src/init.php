@@ -82,18 +82,90 @@ function my_block_cgb_block_assets() { // phpcs:ignore
 			'editor_script' => 'my_block-cgb-block-js',
 			// Enqueue blocks.editor.build.css in the editor only.
 			'editor_style'  => 'my_block-cgb-block-editor-css',
-			'render_callback' => 'render_posts_block',
+			'render_callback' => 'render_grondbank',
+		)
+	);
+
+	register_block_type(
+		'cgb/grondbalans-banner', array(
+			// Enqueue blocks.style.build.css on both frontend & backend.
+			'style'         => 'my_block-cgb-style-css',
+			// Enqueue blocks.build.js in the editor only.
+			'editor_script' => 'my_block-cgb-block-js',
+			// Enqueue blocks.editor.build.css in the editor only.
+			'editor_style'  => 'my_block-cgb-block-editor-css',
+			'render_callback' => 'render_banner',
 		)
 	);
 }
 
 
-function render_posts_block( $attributes ){
+function render_grondbank( $attributes ){
+
+	ob_start();
+	$naam = $attributes['grondbankName'];
+	$id = strtolower($naam);
+	$adres = $attributes['grondbankAdres'];
+	$straat = $attributes['grondbankStraat'];
+	$contact = $attributes['grondbankContact'];
+	$tel = $attributes['grondbankTel'];
+	$mail = $attributes['grondbankMail'];
+
+	echo '<div class="grondbank__item" id="gb-'. $id .'">';
+	echo '<div class="grondbank__image">';
+	echo '<img src="'. $attributes['mediaUrl'] .'" alt="Foto van plaats" />';
+	echo '</div>';
+
+	echo '<div class="grondbank__details">';
+
+	echo '<div class="grondbank__details--top">';
+	echo '<h3>Grondbank '. $naam .'</h3>'; // Title
+	echo '<p>'. $straat .'</p>'; // Straat
+	echo '<p>'. $adres.'</p>'; // Adres
+	echo '</div>';
+
+	echo '<div class="grondbank__details--mid">';
+	echo '<p>Contactpersoon:</p>';
+	echo '<p><strong>'. $contact .'</strong></p>'; //Contactpersoon
+	echo '<p>'. $tel .'</p>'; //Telefoon
+	echo '<a href="mailto:'. $mail .'">'.$mail.'</a>'; //email;
+	echo '</div>';
+
+	echo '<div class="grondbank__details--onder">';
+	echo '<h4>Samenwerkingsverband met:</h4>'; 
+	echo '<img src="'. $attributes['logoUrl'] .'" alt="Logo van partner" />';
+	echo '</div>';
+
+	echo '</div>';
+	echo '</div>';
+	return ob_get_clean();
+}
+
+function render_banner($attributes) {
+
+	$fontSize = $attributes['fontSize'];
+	$link = $attributes['link'];
+
+	ob_start();
 	echo '<pre>';
 	var_dump($attributes);
 	echo '</pre>';
-	echo '<img src="' .$attributes['mediaUrl'] .'" />';
-	// die();
+	
+	echo '<div class="banner" style="background-image: ">';
+	echo '<div class="banner__container">';
+	echo '<div class="banner__block">';
+	echo '<div class="banner__block--content" >';
+
+	echo '<h1 style="font-size: '. ($fontSize ? $fontSize : null).'">'. $attributes['heading'] . '</h1>';
+	echo '<p>'. $attributes['content'] .'</p>';
+	if ($link) {
+		echo '<a href="'. $link .'">'. $attributes['button'].'</a>';
+	}
+	echo '</div>';
+	echo '</div>';
+	echo '</div>';
+	echo '</div>';
+	return ob_get_clean();
 }
 
 // Hook: Block assets.
