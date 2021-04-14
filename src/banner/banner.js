@@ -100,7 +100,7 @@ registerBlockType( 'cgb/grondbalans-banner', {
 				/>
                 <br />
                 <a onClick={removeMedia}>Verwijder afbeelding</a>
-
+                <p>Test!</p>
                 <TextControl 
                     label="Banner kop"
                     value={ props.attributes.heading }
