@@ -140,18 +140,17 @@ registerBlockType( 'cgb/grondbalans-banner', {
                     value={ props.attributes.content }
                     onChange={ (value) => changeContent(value) }
                 />
-                 <h3>Banner button</h3>
+                <h3>Banner button</h3>
                 <TextControl 
                     label="Button tekst"
                     value={ props.attributes.button }
                     onChange={ (value) => changeButton(value) }
                 />
-                  <TextControl 
+                <TextControl 
                     label="Button link"
                     value={ props.attributes.link }
                     onChange={ (value) => changeLink(value) }
                 />
-
 			</div>
 		);
 	},

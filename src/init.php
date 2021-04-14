@@ -97,6 +97,18 @@ function my_block_cgb_block_assets() { // phpcs:ignore
 			'render_callback' => 'render_banner',
 		)
 	);
+
+	register_block_type(
+		'cgb/grondbalans-content', array(
+			// Enqueue blocks.style.build.css on both frontend & backend.
+			'style'         => 'my_block-cgb-style-css',
+			// Enqueue blocks.build.js in the editor only.
+			'editor_script' => 'my_block-cgb-block-js',
+			// Enqueue blocks.editor.build.css in the editor only.
+			'editor_style'  => 'my_block-cgb-block-editor-css',
+			'render_callback' => 'render_content',
+		)
+	);
 }
 
 
@@ -165,5 +177,20 @@ function render_banner($attributes) {
 	return ob_get_clean();
 }
 
+function render_content($attributes){
+	ob_start();
+	echo '<div class="content">';
+    echo '<div class="content__container">';
+	echo '<div class="content__intro">';
+	echo '<h1>'. $attributes['heading'].'</h1>';
+	echo '<h2>'. $atrr	['subheading'] .'</h2>';
+	echo '<p>'. $attributes['content']. '</p>';
+	echo '<div class="content__line"></div>';
+	echo '</div>';
+	echo '</div>';
+	echo '</div>';
+	return ob_get_clean();
+
+}
 // Hook: Block assets.
 add_action( 'init', 'my_block_cgb_block_assets' );
