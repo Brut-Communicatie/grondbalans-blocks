@@ -88,6 +88,7 @@ registerBlockType( 'cgb/grondbalans-banner', {
 						<a onClick={open} isDefault isLarge>{__('Selecteer of verander afbeelding', 'awp')}</a>
 					)}
 				/>
+                <br />
                 <a onClick={removeMedia}>Verwijder afbeelding</a>
 			</div>
 		);
