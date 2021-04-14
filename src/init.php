@@ -147,11 +147,8 @@ function render_banner($attributes) {
 	$link = $attributes['link'];
 
 	ob_start();
-	echo '<pre>';
-	var_dump($attributes);
-	echo '</pre>';
 	
-	echo '<div class="banner" style="background-image: ">';
+	echo '<div class="banner" style="background-image: url('. $attributes['mediaUrl'] .')">';
 	echo '<div class="banner__container">';
 	echo '<div class="banner__block">';
 	echo '<div class="banner__block--content" >';
