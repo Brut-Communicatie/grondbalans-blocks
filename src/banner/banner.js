@@ -48,6 +48,12 @@ registerBlockType( 'cgb/grondbalans-banner', {
         content: {
             type: 'string',
         },
+        link: {
+            type: 'string',
+        },
+        button: {
+            type: 'string',
+        },
 	},
 
 	/**
@@ -86,10 +92,23 @@ registerBlockType( 'cgb/grondbalans-banner', {
                 content: text,
             });
         }
+
+        const changeButton = (text) => {
+            props.setAttributes({
+                button: text,
+            });
+        }
+
+        const changeLink = (text) => {
+            props.setAttributes({
+                link: text,
+            });
+        }
         console.log(props);
         
 		return (
 			<div className={ props.className }>
+
                 {props.attributes.mediaUrl != "" ? 
 				(
 					<div>
@@ -109,17 +128,27 @@ registerBlockType( 'cgb/grondbalans-banner', {
 				/>
                 <br />
                 <a onClick={removeMedia}>Verwijder afbeelding</a>
-                <p>Test!</p>
                 <TextControl 
                     label="Banner kop"
                     value={ props.attributes.heading }
                     onChange={ (value) => changeHeading(value) }
                 />
-                  <TextareaControl 
+                <TextareaControl 
                     label="Banner content"
                     value={ props.attributes.content }
                     onChange={ (value) => changeContent(value) }
                 />
+                <TextControl 
+                    label="Button tekst"
+                    value={ props.attributes.button }
+                    onChange={ (value) => changeButton(value) }
+                />
+                  <TextControl 
+                    label="Button link"
+                    value={ props.attributes.link }
+                    onChange={ (value) => changeLink(value) }
+                />
+
 			</div>
 		);
 	},
