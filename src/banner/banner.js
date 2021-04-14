@@ -12,6 +12,7 @@ import './style.scss';
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 const {  MediaUpload } = wp.blockEditor;
+import { TextControl } from '@wordpress/components';
 /**
  * Register: aa Gutenberg Block.
  *
@@ -41,6 +42,9 @@ registerBlockType( 'cgb/grondbalans-banner', {
         mediaId: {
             type: 'number',
         },
+        heading: {
+            type: 'string',
+        },
 	},
 
 	/**
@@ -60,13 +64,19 @@ registerBlockType( 'cgb/grondbalans-banner', {
 				mediaId: 0,
 				mediaUrl: ''
 			});
-		}
+        }
 		 const onSelectMedia = (media) => {
 			props.setAttributes({
 				mediaId: media.id,
 				mediaUrl: media.url
 			});
-		}
+        }
+
+        const changeHeading = (text) => {
+            props.setAttributes({
+                heading: text,
+            });
+        }
         console.log(props);
         
 		return (
@@ -90,6 +100,12 @@ registerBlockType( 'cgb/grondbalans-banner', {
 				/>
                 <br />
                 <a onClick={removeMedia}>Verwijder afbeelding</a>
+
+                <TextControl 
+                    label="Banner kop"
+                    value={ props.attributes.heading }
+                    onChange={ ( text ) => changeHeading(text) }
+                />
 			</div>
 		);
 	},
