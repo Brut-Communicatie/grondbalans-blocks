@@ -36,7 +36,7 @@ registerBlockType( 'cgb/grondbalans-content', {
 		__( 'grondbalans' ),
 	],
 	attributes: {
-        heading: {
+        heading: { 
             type: 'string',
         },
         subheading: {
