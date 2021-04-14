@@ -11,7 +11,8 @@ import './style.scss';
 
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
-const {  MediaUpload } = wp.blockEditor;
+
+import { TextControl, TextareaControl } from '@wordpress/components';
 /**
  * Register: aa Gutenberg Block.
  *
