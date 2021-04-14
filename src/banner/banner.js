@@ -108,7 +108,8 @@ registerBlockType( 'cgb/grondbalans-banner', {
         
 		return (
 			<div className={ props.className }>
-
+                <h2>Banner</h2>
+                <h3>Banner afbeelding</h3>
                 {props.attributes.mediaUrl != "" ? 
 				(
 					<div>
@@ -128,6 +129,7 @@ registerBlockType( 'cgb/grondbalans-banner', {
 				/>
                 <br />
                 <a onClick={removeMedia}>Verwijder afbeelding</a>
+                <h3>Banner content</h3>
                 <TextControl 
                     label="Banner kop"
                     value={ props.attributes.heading }
@@ -138,6 +140,7 @@ registerBlockType( 'cgb/grondbalans-banner', {
                     value={ props.attributes.content }
                     onChange={ (value) => changeContent(value) }
                 />
+                 <h3>Banner button</h3>
                 <TextControl 
                     label="Button tekst"
                     value={ props.attributes.button }
