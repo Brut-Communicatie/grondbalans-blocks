@@ -82,23 +82,26 @@ registerBlockType( 'cgb/grondbalans-content', {
 
 
 		return (
-			<div className={ props.className }>
-                <TextControl 
-                    label="Heading"
-                    value={ props.attributes.button }
-                    onChange={ (value) => updateTitle(value) }
-                />
-                <TextControl 
-                    label="Subheading"
-                    value={ props.attributes.button }
-                    onChange={ (value) => updateSubheading(value) }
-                />
-                   <TextareaControl 
-                    label="Content"
-                    value={ props.attributes.button }
-                    onChange={ (value) => updateContent(value) }
-                />
-			</div>
+            <div>
+                <h2>Intro</h2>
+                <div className={ props.className }>
+                    <TextControl 
+                        label="Heading"
+                        value={ props.attributes.button }
+                        onChange={ (value) => updateTitle(value) }
+                    />
+                    <TextControl 
+                        label="Subheading"
+                        value={ props.attributes.button }
+                        onChange={ (value) => updateSubheading(value) }
+                    />
+                    <TextareaControl 
+                        label="Content"
+                        value={ props.attributes.button }
+                        onChange={ (value) => updateContent(value) }
+                    />
+                </div>
+            </div>
 		);
 	},
 
