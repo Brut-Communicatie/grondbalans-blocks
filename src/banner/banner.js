@@ -12,7 +12,7 @@ import './style.scss';
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 const {  MediaUpload } = wp.blockEditor;
-import { TextControl } from '@wordpress/components';
+import { TextControl, TextareaControl } from '@wordpress/components';
 /**
  * Register: aa Gutenberg Block.
  *
@@ -43,6 +43,9 @@ registerBlockType( 'cgb/grondbalans-banner', {
             type: 'number',
         },
         heading: {
+            type: 'string',
+        },
+        content: {
             type: 'string',
         },
 	},
@@ -77,6 +80,12 @@ registerBlockType( 'cgb/grondbalans-banner', {
                 heading: text,
             });
         }
+
+        const changeContent = (text) => {
+            props.setAttributes({
+                content: text,
+            });
+        }
         console.log(props);
         
 		return (
@@ -105,6 +114,11 @@ registerBlockType( 'cgb/grondbalans-banner', {
                     label="Banner kop"
                     value={ props.attributes.heading }
                     onChange={ (value) => changeHeading(value) }
+                />
+                  <TextareaControl 
+                    label="Banner content"
+                    value={ props.attributes.content }
+                    onChange={ (value) => changeContent(value) }
                 />
 			</div>
 		);
