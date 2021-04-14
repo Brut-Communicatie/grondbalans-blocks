@@ -87,17 +87,17 @@ registerBlockType( 'cgb/grondbalans-content', {
                 <div className={ props.className }>
                     <TextControl 
                         label="Heading"
-                        value={ props.attributes.button }
+                        value={ props.attributes.heading }
                         onChange={ (value) => updateTitle(value) }
                     />
                     <TextControl 
                         label="Subheading"
-                        value={ props.attributes.button }
+                        value={ props.attributes.subheading }
                         onChange={ (value) => updateSubheading(value) }
                     />
                     <TextareaControl 
                         label="Content"
-                        value={ props.attributes.button }
+                        value={ props.attributes.content }
                         onChange={ (value) => updateContent(value) }
                     />
                 </div>
