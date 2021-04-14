@@ -104,7 +104,7 @@ registerBlockType( 'cgb/grondbalans-banner', {
                 <TextControl 
                     label="Banner kop"
                     value={ props.attributes.heading }
-                    onChange={ ( text ) => changeHeading(text) }
+                    onChange={ (value) => changeHeading(value) }
                 />
 			</div>
 		);
