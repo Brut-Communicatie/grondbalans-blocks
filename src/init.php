@@ -191,5 +191,31 @@ function render_content($attributes){
 	echo '</div>';
 	return ob_get_clean();
 }
+
+function render_block_rechts($attributes){
+echo '<div class="portfolio__block" id="" data-aos="fade-left" data-aos-delay="250">';
+echo '<div class="portfolio__block--container">';
+echo '<div class="portfolio__block--left">';
+echo '<div class="portfolio__block--left-content">';
+echo '<h3>';
+echo $attributes['heading'];
+echo '</h3>';
+echo '<h4>';
+echo $attributes['subheading'];
+echo '</h4>';
+echo $attributes['content'];
+if ($attributes['button']) {
+	echo '<a href="/contact/#contact">';
+	echo $attributes['button'];
+	echo '</a>';
+}
+echo '</div>';
+echo '</div>';
+echo '<div class="portfolio__block--right '. ($attributes['class'] ? $attributes['class'] : null).'>">';
+echo '<img src="'. $attributes['mediaUrl'].'" alt="Project afbeelding" width="720px" />';
+echo '</div>';
+echo '</div>';
+echo '</div>';
+}
 // Hook: Block assets.
 add_action( 'init', 'my_block_cgb_block_assets' );
