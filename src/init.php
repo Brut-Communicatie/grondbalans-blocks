@@ -190,7 +190,6 @@ function render_content($attributes){
 	echo '</div>';
 	echo '</div>';
 	return ob_get_clean();
-
 }
 // Hook: Block assets.
 add_action( 'init', 'my_block_cgb_block_assets' );

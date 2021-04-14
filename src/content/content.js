@@ -84,7 +84,7 @@ registerBlockType( 'cgb/grondbalans-content', {
 		return (
             <div>
                 <h2>Intro</h2>
-                <div className={ props.className }>
+                <div className="grondbalans__content">
                     <TextControl 
                         label="Heading"
                         value={ props.attributes.heading }
