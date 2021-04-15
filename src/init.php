@@ -360,7 +360,7 @@ function render_blocks_videolinks($attributes) {
 	echo $attributes['subheading'];
 	echo '</h4>';
 	echo $attributes['content'];
-	echo '<a href="/contact/#contact">';
+	echo '<a href="/duurzaam-circulair-grondverzet">';
 	echo $attributes['button'];
 	echo '</a>';
 	echo '</div>';
