@@ -153,9 +153,7 @@ registerBlockType( 'cgb/grondbalans-blockrechts', {
                     <FormToggle
                         label="Schaduw uit"
                         checked={ props.attributes.class }
-                        onChange={ () =>
-                            setState( ( state ) => toggleState(state) )
-                        }
+                        onChange={ ( state ) => toggleState(state) }
                     />
                 </div>
             </div>
