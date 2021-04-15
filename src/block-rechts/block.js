@@ -57,6 +57,7 @@ registerBlockType( 'cgb/grondbalans-blockrechts', {
         },
         class: {
             type: 'boolean',
+            default: false
         },
 	},
 
@@ -102,9 +103,9 @@ registerBlockType( 'cgb/grondbalans-blockrechts', {
 			});
         }
 
-        const toggleState = (state) => {
+        const toggleState = () => {
             props.setAttributes({
-                class: state,
+                class: !props.attributes.class,
             });
         }
 
@@ -153,7 +154,7 @@ registerBlockType( 'cgb/grondbalans-blockrechts', {
                     <FormToggle
                         label="Schaduw uit"
                         checked={ props.attributes.class }
-                        onChange={ ( state ) => toggleState(state) }
+                        onChange={ () => toggleState() }
                     />
                 </div>
             </div>
