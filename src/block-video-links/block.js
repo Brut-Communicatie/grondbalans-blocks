@@ -96,7 +96,7 @@ registerBlockType( 'cgb/grondbalans-blockvideolinks', {
 
 		return (
             <div className="grondbalans__block--rechts">
-                <h2>Section video</h2>
+                <h2>Section video links</h2>
                 <div>
                     {props.attributes.mediaUrl != "" ? 
                     (
