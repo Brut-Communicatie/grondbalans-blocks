@@ -235,7 +235,7 @@ function render_block_rechts($attributes){
 	}
 	echo '</div>';
 	echo '</div>';
-	echo '<div class="portfolio__block--right '. ($attributes['class'] ? $attributes['class'] : null).'>">';
+	echo '<div class="portfolio__block--right '. ($attributes['class'] ? $attributes['class'] : null).'">';
 	echo '<img src="'. $img .'" alt="Project afbeelding" width="720px" />';
 	echo '</div>';
 	echo '</div>';
