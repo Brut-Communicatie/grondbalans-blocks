@@ -109,6 +109,17 @@ function my_block_cgb_block_assets() { // phpcs:ignore
 			'render_callback' => 'render_content',
 		)
 	);
+	register_block_type(
+		'cgb/grondbalans-blockrechts', array(
+			// Enqueue blocks.style.build.css on both frontend & backend.
+			'style'         => 'my_block-cgb-style-css',
+			// Enqueue blocks.build.js in the editor only.
+			'editor_script' => 'my_block-cgb-block-js',
+			// Enqueue blocks.editor.build.css in the editor only.
+			'editor_style'  => 'my_block-cgb-block-editor-css',
+			'render_callback' => 'render_block_rechts',
+		)
+	);
 }
 
 
