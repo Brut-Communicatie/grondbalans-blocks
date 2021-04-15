@@ -121,6 +121,17 @@ function my_block_cgb_block_assets() { // phpcs:ignore
 		)
 	);
 	register_block_type(
+		'cgb/grondbalans-blocklinks', array(
+			// Enqueue blocks.style.build.css on both frontend & backend.
+			'style'         => 'my_block-cgb-style-css',
+			// Enqueue blocks.build.js in the editor only.
+			'editor_script' => 'my_block-cgb-block-js',
+			// Enqueue blocks.editor.build.css in the editor only.
+			'editor_style'  => 'my_block-cgb-block-editor-css',
+			'render_callback' => 'render_block_links',
+		)
+	);
+	register_block_type(
 		'cgb/grondbalans-container', array(
 			// Enqueue blocks.style.build.css on both frontend & backend.
 			'style'         => 'my_block-cgb-style-css',
@@ -238,6 +249,40 @@ function render_block_rechts($attributes){
 	echo '<div class="portfolio__block--right '. ($attributes['class'] ? 'portfolio--noshadow' : null).'">';
 	echo '<img src="'. $img .'" alt="Project afbeelding" width="720px" />';
 	echo '</div>';
+	echo '</div>';
+	echo '</div>';
+	return ob_get_clean();
+}
+
+
+function render_block_links($attributes){
+	$img = $attributes['mediaUrl'];
+	ob_start();
+	echo '<div class="portfolio__block" id="" data-aos="fade-left" data-aos-delay="250">';
+	echo '<div class="portfolio__block--container">';
+
+	echo '<div class="portfolio__block--right '. ($attributes['class'] ? 'portfolio--noshadow' : null).'">';
+	echo '<img src="'. $img .'" alt="Project afbeelding" width="720px" />';
+	echo '</div>';
+
+
+	echo '<div class="portfolio__block--left-two">';
+	echo '<div class="portfolio__block--left-content">';
+	echo '<h3>';
+	echo $attributes['heading'];
+	echo '</h3>';
+	echo '<h4>';
+	echo $attributes['subheading'];
+	echo '</h4>';
+	echo $attributes['content'];
+	if ($attributes['button']) {
+		echo '<a href="/contact/#contact">';
+		echo $attributes['button'];
+		echo '</a>';
+	}
+	echo '</div>';
+	echo '</div>';
+
 	echo '</div>';
 	echo '</div>';
 	return ob_get_clean();
