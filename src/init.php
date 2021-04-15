@@ -215,6 +215,7 @@ function render_content($attributes){
 }
 
 function render_block_rechts($attributes){
+	ob_start();
 	echo '<div class="portfolio__block" id="" data-aos="fade-left" data-aos-delay="250">';
 	echo '<div class="portfolio__block--container">';
 	echo '<div class="portfolio__block--left">';
@@ -238,6 +239,7 @@ function render_block_rechts($attributes){
 	echo '</div>';
 	echo '</div>';
 	echo '</div>';
+	return ob_get_clean();
 }
 
 function render_blocks_container($attributes, $content){
