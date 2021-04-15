@@ -16,3 +16,4 @@ import './block-rechts/block.js';
 import './block-links/block.js';
 import './block-container/container.js';
 import './block-video/block.js';
+import './block-video-links/block.js';

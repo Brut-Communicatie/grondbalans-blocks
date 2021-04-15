@@ -153,8 +153,18 @@ function my_block_cgb_block_assets() { // phpcs:ignore
 			'render_callback' => 'render_blocks_video',
 		)
 	);
-
-
+	register_block_type(
+		'cgb/grondbalans-blockvideolinks', array(
+			// Enqueue blocks.style.build.css on both frontend & backend.
+			'style'         => 'my_block-cgb-style-css',
+			// Enqueue blocks.build.js in the editor only.
+			'editor_script' => 'my_block-cgb-block-js',
+			// Enqueue blocks.editor.build.css in the editor only.
+			'editor_style'  => 'my_block-cgb-block-editor-css',
+			'render_callback' => 'render_blocks_videolinks',
+		)
+	);
+	
 
 }
 
@@ -332,6 +342,28 @@ function render_blocks_video($attributes) {
 	echo '</div>';
 	echo '<div class="portfolio__block--right">';
 	echo $attributes['video'];
+	echo '</div>';
+	echo '</div>';
+	echo '</div>';
+	return ob_get_clean();
+}
+function render_blocks_videolinks($attributes) {
+	ob_start();
+	echo '<div class="portfolio__block" data-aos="fade-right" data-aos-delay="200">';
+	echo '<div class="portfolio__block--container">';
+	echo '<div class="portfolio__block--left-two">';
+	echo '<div class="portfolio__block--left-content">';
+	echo '<h3>';
+	echo $attributes['heading'];
+	echo '</h3>';
+	echo '<h4>';
+	echo $attributes['subheading'];
+	echo '</h4>';
+	echo $attributes['content'];
+	echo '<a href="/contact/#contact">';
+	echo $attributes['button'];
+	echo '</a>';
+	echo '</div>';
 	echo '</div>';
 	echo '</div>';
 	echo '</div>';
