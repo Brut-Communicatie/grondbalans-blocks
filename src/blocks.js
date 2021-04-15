@@ -12,3 +12,4 @@
 import './block/block.js';
 import './content/content.js';
 import './banner/banner.js';
+import './block-rechts/block.js';
