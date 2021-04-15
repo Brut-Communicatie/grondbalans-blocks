@@ -120,6 +120,17 @@ function my_block_cgb_block_assets() { // phpcs:ignore
 			'render_callback' => 'render_block_rechts',
 		)
 	);
+	register_block_type(
+		'cgb/grondbalans-container', array(
+			// Enqueue blocks.style.build.css on both frontend & backend.
+			'style'         => 'my_block-cgb-style-css',
+			// Enqueue blocks.build.js in the editor only.
+			'editor_script' => 'my_block-cgb-block-js',
+			// Enqueue blocks.editor.build.css in the editor only.
+			'editor_style'  => 'my_block-cgb-block-editor-css',
+			'render_callback' => 'render_blocks_container',
+		)
+	);
 }
 
 
@@ -227,6 +238,16 @@ function render_block_rechts($attributes){
 	echo '</div>';
 	echo '</div>';
 	echo '</div>';
+}
+
+function render_blocks_container($attributes, $content){
+	ob_start();
+	echo '<div class="expertise">';
+    echo '<div class="expertise__container">';
+	echo $content;
+	echo '</div>';
+	echo '</div>';
+	return ob_get_clean();
 }
 // Hook: Block assets.
 add_action( 'init', 'my_block_cgb_block_assets' );
