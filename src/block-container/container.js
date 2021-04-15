@@ -54,6 +54,7 @@ attributes: {
 
 		return (
 			<div className="block__container">
+                <h2>Content container</h2>
 					<InnerBlocks />
             </div>
 

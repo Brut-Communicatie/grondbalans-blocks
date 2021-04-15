@@ -112,7 +112,7 @@ registerBlockType( 'cgb/grondbalans-blockrechts', {
 
 		return (
             <div className="grondbalans__block--rechts">
-                <h2>Content blok</h2>
+                <h2>Section</h2>
                 <div>
                     {props.attributes.mediaUrl != "" ? 
                     (
