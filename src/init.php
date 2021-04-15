@@ -351,6 +351,9 @@ function render_blocks_videolinks($attributes) {
 	ob_start();
 	echo '<div class="portfolio__block" data-aos="fade-right" data-aos-delay="200">';
 	echo '<div class="portfolio__block--container">';
+	echo '<div class="portfolio__block--right">';
+	echo $attributes['video'];
+	echo '</div>';
 	echo '<div class="portfolio__block--left-two">';
 	echo '<div class="portfolio__block--left-content">';
 	echo '<h3>';
