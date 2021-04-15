@@ -12,6 +12,7 @@ import './style.scss';
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 const {  MediaUpload } = wp.blockEditor;
+import { FormToggle } from '@wordpress/components'
 import { TextControl, TextareaControl } from '@wordpress/components';
 /**
  * Register: aa Gutenberg Block.
@@ -53,6 +54,9 @@ registerBlockType( 'cgb/grondbalans-blockrechts', {
         },
         button: {
             type: 'string',
+        },
+        class: {
+            type: 'boolean',
         },
 	},
 
@@ -98,6 +102,12 @@ registerBlockType( 'cgb/grondbalans-blockrechts', {
 			});
         }
 
+        const toggleState = (state) => {
+            props.setAttributes({
+                class: state,
+            });
+        }
+
 
 		return (
             <div>
@@ -139,6 +149,13 @@ registerBlockType( 'cgb/grondbalans-blockrechts', {
                         label="Button tekst"
                         value={ props.attributes.button }
                         onChange={ (value) => updateButton(value) }
+                    />
+                    <FormToggle
+                        label="Schaduw uit"
+                        checked={ props.attributes.class }
+                        onChange={ () =>
+                            setState( ( state ) => toggleState(state) )
+                        }
                     />
                 </div>
             </div>
