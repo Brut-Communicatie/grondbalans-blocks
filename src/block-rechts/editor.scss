@@ -1,0 +1,12 @@
+.grondbalans{
+    &__block{
+        &--rechts{
+            padding: 10px;
+            background-color: rgb(194, 194, 194);
+
+            p{
+                margin: 0;
+            }
+        }
+    }
+}
