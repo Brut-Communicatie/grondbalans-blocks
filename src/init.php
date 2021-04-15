@@ -215,6 +215,7 @@ function render_content($attributes){
 }
 
 function render_block_rechts($attributes){
+	$img = $attributes['mediaUrl'];
 	ob_start();
 	echo '<div class="portfolio__block" id="" data-aos="fade-left" data-aos-delay="250">';
 	echo '<div class="portfolio__block--container">';
@@ -235,7 +236,7 @@ function render_block_rechts($attributes){
 	echo '</div>';
 	echo '</div>';
 	echo '<div class="portfolio__block--right '. ($attributes['class'] ? $attributes['class'] : null).'>">';
-	echo '<img src="'. $attributes['mediaUrl'].'" alt="Project afbeelding" width="720px" />';
+	echo '<img src="'. $img .'" alt="Project afbeelding" width="720px" />';
 	echo '</div>';
 	echo '</div>';
 	echo '</div>';
