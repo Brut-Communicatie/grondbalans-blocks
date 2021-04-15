@@ -313,6 +313,7 @@ function render_blocks_container($attributes, $content){
 }
 
 function render_blocks_video($attributes) {
+	ob_start();
 	echo '<div class="portfolio__block" data-aos="fade-right" data-aos-delay="200">';
 	echo '<div class="portfolio__block--container">';
 	echo '<div class="portfolio__block--left">';
@@ -334,6 +335,7 @@ function render_blocks_video($attributes) {
 	echo '</div>';
 	echo '</div>';
 	echo '</div>';
+	return ob_get_clean();
 }
 // Hook: Block assets.
 add_action( 'init', 'my_block_cgb_block_assets' );
