@@ -17,3 +17,7 @@ import './block-links/block.js';
 import './block-container/container.js';
 import './block-video/block.js';
 import './block-video-links/block.js';
+import './contact/contact.js';
+import './contact/contact-regio.js';
+import './contact/contact-persoon.js';
+import './contact/contact-grondbank.js';

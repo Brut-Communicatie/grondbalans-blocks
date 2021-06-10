@@ -164,6 +164,50 @@ function my_block_cgb_block_assets() { // phpcs:ignore
 			'render_callback' => 'render_blocks_videolinks',
 		)
 	);
+	register_block_type(
+		'cgb/grondbalans-contact', array(
+			// Enqueue blocks.style.build.css on both frontend & backend.
+			'style'         => 'my_block-cgb-style-css',
+			// Enqueue blocks.build.js in the editor only.
+			'editor_script' => 'my_block-cgb-block-js',
+			// Enqueue blocks.editor.build.css in the editor only.
+			'editor_style'  => 'my_block-cgb-block-editor-css',
+			'render_callback' => 'render_contact',
+		)
+	);
+	register_block_type(
+		'cgb/grondbalans-contact-regio', array(
+			// Enqueue blocks.style.build.css on both frontend & backend.
+			'style'         => 'my_block-cgb-style-css',
+			// Enqueue blocks.build.js in the editor only.
+			'editor_script' => 'my_block-cgb-block-js',
+			// Enqueue blocks.editor.build.css in the editor only.
+			'editor_style'  => 'my_block-cgb-block-editor-css',
+			'render_callback' => 'render_contactregion',
+		)
+	);
+	register_block_type(
+		'cgb/grondbalans-contact-persoon', array(
+			// Enqueue blocks.style.build.css on both frontend & backend.
+			'style'         => 'my_block-cgb-style-css',
+			// Enqueue blocks.build.js in the editor only.
+			'editor_script' => 'my_block-cgb-block-js',
+			// Enqueue blocks.editor.build.css in the editor only.
+			'editor_style'  => 'my_block-cgb-block-editor-css',
+			'render_callback' => 'render_contactpersoon',
+		)
+	);
+	register_block_type(
+		'cgb/grondbalans-contact-grondbank', array(
+			// Enqueue blocks.style.build.css on both frontend & backend.
+			'style'         => 'my_block-cgb-style-css',
+			// Enqueue blocks.build.js in the editor only.
+			'editor_script' => 'my_block-cgb-block-js',
+			// Enqueue blocks.editor.build.css in the editor only.
+			'editor_style'  => 'my_block-cgb-block-editor-css',
+			'render_callback' => 'render_contactgrondbank',
+		)
+	);
 	
 
 }
@@ -368,6 +412,76 @@ function render_blocks_videolinks($attributes) {
 	echo '</a>';
 	echo '</div>';
 	echo '</div>';
+	echo '</div>';
+	echo '</div>';
+	return ob_get_clean();
+}
+
+function render_contact($attributes, $content){
+	ob_start();
+	echo '<div class="contact__cards">';
+    echo '<div class="contact__cards--container">';
+	echo $content;
+	echo '</div>';
+	echo '</div>';
+	return ob_get_clean();
+}
+
+function render_contactregion($attributes, $content){
+	$regioID = $attributes['regioID'];
+	$regio = $attributes['regio'];
+
+	ob_start();
+	echo '<div class="contact__cards--item" id="'. $regioID .'">';
+	echo '<h3>' . $regio . '</h3>';
+	echo $content;
+	echo '</div>';
+	return ob_get_clean();
+}
+
+function render_contactpersoon($attributes){
+
+
+	$foto = $attributes['mediaUrl'];
+	$naam = $attributes['naam'];
+	$title = $attributes['functie'];
+	$tel = $attributes['tel'];
+	$mail = $attributes['mail'];
+
+	ob_start();
+	echo '<div class="contact__cards--info">';
+	echo '<div class="contact__cards--image">';
+	echo '<img src="' . $foto . '" alt="Foto van '. $naam .'" width="67px"/>';
+	echo '</div>';
+	echo '<div class="contact__cards--details">';
+	echo '<h4>' . $naam . '</h4>';
+	echo '<p>' . $title . '</p>';
+	echo '<p>' . $tel . '</p>';
+	echo '<a href="mailto:'.$mail.'">'. $mail .'</a>';
+	echo '</div>';
+	echo '</div>';
+	return ob_get_clean();
+}
+
+function render_contactgrondbank($attributes){
+	$naam = $attributes['naam'];
+	$regio = $attributes['regio'];
+	$tel = $attributes['tel'];
+	$mail = $attributes['mail'];
+	
+	ob_start();
+	echo '<div class="contact__cards--info contact__cards--grondbank">';
+	echo '<div class="contact__cards--image">';
+	echo '    <img src="https://mlmotgafwbhj.i.optimole.com/u0PFPh0-3jDNiD8Z/w:250/h:250/q:75/rt:fill/g:ce/https://grondbalans.nl/wp-content/uploads/2020/04/Afbeelding4-1.png" alt="Grondbank afbeelding" width="67px"/>';
+	echo '</div>';
+
+	echo '<div class="contact__cards--details">';
+	echo '<h4>Grondbanken</h4>';
+	echo '<p>' . $regio . '</p>';
+	echo '<h5>' . $naam . '</h5>';
+	echo '<p>' . $tel . '</p>';
+	echo '<a href="mailto:'.$mail.'">'. $mail .'</a>';
+	echo '<a href="/grondbanken">Meer info ></a>';
 	echo '</div>';
 	echo '</div>';
 	return ob_get_clean();
