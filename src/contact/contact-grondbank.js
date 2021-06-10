@@ -115,25 +115,13 @@ registerBlockType( 'cgb/grondbalans-contact-grondbank', {
 		return (
 			<div className="editor__persoon editor__grondbank">
                 				<div className="editor__persoon--foto">
-				{props.attributes.mediaUrl != "" ? 
-				(
-					<img src={props.attributes.mediaUrl} width="100px" />
-				)
-				: null}
+		
+					<img src="https://mlmotgafwbhj.i.optimole.com/u0PFPh0-3jDNiD8Z/w:250/h:250/q:75/rt:fill/g:ce/https://grondbalans.nl/wp-content/uploads/2020/04/Afbeelding4-1.png" width="100px" />
+			
 
-				<MediaUpload
-					title={__('Replace image', 'awp')}
-					value={props.attributes.mediaId}
-					onSelect={onSelectMedia}
-					allowedTypes={['image']}
-					render={({open}) => (
-                        <div>
-						<a onClick={open} isDefault isLarge>{__('Selecteer of verander afbeelding', 'awp')}</a>
-                        </div>
-                    )}
-				/>
+	
 
-				<a onClick={removeMedia}>Verwijder foto</a>
+
 
                 </div>
                 <div className="editor__persoon--info">
